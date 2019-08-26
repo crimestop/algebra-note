@@ -2,6 +2,7 @@
 !*.tex
 !*.bib
 !.gitignore
+!README.md
 !/resources
 !/resources/**
 .DS_Store
