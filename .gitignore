@@ -4,6 +4,7 @@
 !algebra.pdf
 !.gitignore
 !README.md
+!LICENSE
 !/resources
 !/resources/**
 .DS_Store
