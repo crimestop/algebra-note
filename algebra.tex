@@ -991,17 +991,25 @@ There's an isomorphism between the action on the left cosets and the action on t
 \end{definition}
 
 \begin{definition}
-	Let $V$ be an $n$-dimensional linear space. For each $m$-dimensional subspace $S\subseteq V$ and each $v\in V$, $S+v$ is called an $m$-dimensional {\bf affine subspace} of $V$.
+	Let $V$ be an $n$-dimensional linear space. For each $m$-dimensional subspace $S\subseteq V$ and each $v\in V$, $S+v$ is called an $m$-dimensional {\bf affine subspace} of $V$. A 0-dimensional affine subspace is called a {\bf point}. A 1-dimensional affine subspace is called a {\bf line}. An $(n-1)$-dimensional affine subspace is called a {\bf hypersurface}.
 \end{definition}
 Clearly an $m$-dimensional affine subspace of $V$ is an affine space by defining $\overrightarrow{xy}=y-x$.
 
 \begin{definition}
-	Let $U$ and $V$ be n-dimensional linear spaces. A bijective map $f:U\mapsto V$ is an {\bf affine isomorphism} iff $\forall S\subseteq U,f(S)$ an affine subspace of $V\Leftrightarrow S$ is an affine subspace of $U$.
+	Let $U$ and $V$ be n-dimensional linear spaces. A bijective map $f:U\mapsto V$ is an {\bf affine isomorphism} iff $\forall S\subseteq U,f(S)$ an affine subspace of $V\Leftrightarrow S$ is an affine subspace of $U$. The affine automorphisms of $V$ is denoted by $Aut(V)$.
 \end{definition}
 
 \begin{definition}
-	Let $V$ be a linear space. The affine automorphisms of $V$ is denoted by $Aut(V)$.
+	Let $U$ be a linear space. The {\bf affine group} $Aff(U)$ is defined to be the transformations on $U$
+	\begin{equation}
+		u\mapsto g\cdot u+a
+	\end{equation}
+	for all $g\in GL(U)$ and $a\in U$.
 \end{definition}
+
+\begin{lemma}
+	$Aff(U)\subseteq Aut(U)$
+\end{lemma}
 
 \begin{definition}
 	Let $V$ and $V'$ be vector spaces over $K$. A function $f:V\mapsto V'$ is a {\bf semilinear transformation} if there's $\sigma\in Aut(K)$ such that $\forall x,y\in V,\forall\lambda\in K$
@@ -1009,10 +1017,16 @@ Clearly an $m$-dimensional affine subspace of $V$ is an affine space by defining
 		f(x+y)&=&f(x)+f(y)\\
 		f(\lambda x)&=&\sigma(\lambda)x
 	\end{eqnarray}
-	A semilinear transformation is nonsingular if it is a bijection. All semilinear transformations on a linear space $V$ form a group denoted by $\Gamma L(V)$.
+	A semilinear transformation is nonsingular if it is a bijection. All non-singular semilinear transformations on a linear space $V$ form a group denoted by $\Gamma L(V)$.
 \end{definition}
 
-{\color {red} \bf To be continued.}
+\begin{lemma}
+	$\Gamma L(V)\subseteq Aut(U)$
+\end{lemma}
+
+\begin{lemma}
+	Let $V$ be a linear space of dimension $\geq 2$ over a field $K$. Then
+\end{lemma}
 
 
 	
@@ -4233,17 +4247,17 @@ There a natural embedding $\iota:R\hookrightarrow R[x]$ by defining $\iota(r)=(r
 	\begin{equation}
 		ad(X_i)_{jk}=f_{ikj}
 	\end{equation}
-	\begin{myExercise}
+	
+	
 		Check (\ref{eqn:lie_rep}) for the adjoint representation.
-	\end{myExercise}
 	
 	From the adjoint representation we define the \textbf{Killing form}
 	\begin{equation}
 		B(X,Y)={\rm Tr}[ad(X)\cdot ad(Y)]
 	\end{equation}
-	\begin{myExercise}
+	
+	
 		Test that $B[[X,Y]Z]=B[X,[Y,Z]]$.
-	\end{myExercise}
 	
 	If we choose a new basis $X'_i=L_{ij}X_j$. Then
 	\begin{eqnarray}
@@ -4284,9 +4298,9 @@ There a natural embedding $\iota:R\hookrightarrow R[x]$ by defining $\iota(r)=(r
 	\begin{equation}
 		[X_i,X_j]=i\epsilon_{ijk}X_k
 	\end{equation}
-	\begin{myExercise}
+	
+	
 		Test that the Killing form $B(-iX_i,-iX_j)=-2\delta_{ij}$. Thus the ${\bf su}(2)$ is a compact Lie algebra.
-	\end{myExercise}
 	
 	Then we want to derive all the inequivalent irreducible finite-dimensional Hermitian representations of ${\bf su}(2)$. For this purpose, we only need to reduce an arbitrary finite-dimensional representation of ${\bf su}(2)$ and see what we can get. 
 	
@@ -4424,10 +4438,10 @@ There a natural embedding $\iota:R\hookrightarrow R[x]$ by defining $\iota(r)=(r
 		X_i=X_i^{(1)}\otimes I^{(2)}+I^{(1)}\otimes X_i^{(2)}
 	\end{equation}
 	which is usually abbreviated as $X_i=X_i^{(1)}+X_i^{(2)}$.
-	\begin{myExercise}
-		Test that $X_i$ satisfy ${\bf su}(2)$ algebra, and thus can be viewed as basis of ${\bf su}(2)$ algebra.
-	\end{myExercise}
 	
+	
+		Test that $X_i$ satisfy ${\bf su}(2)$ algebra, and thus can be viewed as basis of ${\bf su}(2)$ algebra.
+		
 	Thus $X_i$ is naturally a ${\bf su}(2)$ representation. It's generally a reducible representation, and can be reduced to irreducible representations by a similar transformation, whose matrix elements are called the Clebsh-Gordan coefficients. It's easier for us to derive the recurrence of each irreducible representations by dimension counting.
 	
 	Since
@@ -4460,7 +4474,10 @@ There a natural embedding $\iota:R\hookrightarrow R[x]$ by defining $\iota(r)=(r
 		(j)\otimes(j')=(|j-j'|)\oplus\cdots\oplus(j+j')
 	\end{equation}
 	This is called the Clebsh-Gordan series.
-	\begin{myExercise}
+	
+	
+	
+	
 		Prove that for $\textbf{su}(2)$ algebra
 		\begin{eqnarray}
 		\Big(\frac 12\Big)^{\otimes 2N}&=&(0)^{g(0,N)}\oplus(1)^{g(1,N)}\oplus\cdots\oplus(N)^{g(N,N)}\\
@@ -4474,7 +4491,7 @@ There a natural embedding $\iota:R\hookrightarrow R[x]$ by defining $\iota(r)=(r
 		\end{array}\right.
 		\end{equation}
 		\textbf{Hint}: Count the dimension of the subspace with definite total $X^3$.
-	\end{myExercise}
+
 	
 	
 	
